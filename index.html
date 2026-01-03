@@ -1,117 +1,156 @@
-{
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://img5.pic.in.th/file/secure-sv1/c4daebff79339bea678e9aff4243d20a.png",
-            "size": "full",
-            "animated": true,
-            "aspectMode": "cover",
-            "aspectRatio": "2.3:3",
-            "offsetBottom": "none"
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "uri": "http://linecorp.com/",
-              "label": "    "
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Share Flex Message</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+
+<body style="font-family:sans-serif;text-align:center;margin-top:40px">
+
+  <h2>แนะนำหนังสือน่าอ่าน</h2>
+
+  <button onclick="shareFlex()"
+    style="
+      padding:14px 26px;
+      font-size:16px;
+      background:#C9A24D;
+      color:#0D1B2A;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+    ">
+    แชร์ให้เพื่อนใน LINE
+  </button>
+
+<script>
+async function shareFlex() {
+  await liff.init({ liffId: "YOUR_LIFF_ID" });
+
+  if (!liff.isLoggedIn()) {
+    liff.login();
+    return;
+  }
+
+  const flexContents = {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "0px",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://img5.pic.in.th/file/secure-sv1/c4daebff79339bea678e9aff4243d20a.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2.3:3"
             },
-            "position": "absolute",
-            "offsetTop": "75%",
-            "offsetEnd": "25%",
-            "gravity": "bottom",
-            "offsetStart": "25%",
-            "offsetBottom": "13%"
-          }
-        ],
-        "borderWidth": "none",
-        "paddingAll": "none"
-      }
-    },
-    {
-      "type": "bubble",
-      "hero": {
-        "type": "image",
-        "url": "https://img5.pic.in.th/file/secure-sv1/-17da1e51fa6030e0e.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "2.9:3",
-        "animated": true,
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "https://youtube.com/shorts/tAtWueQrTTI?si=5hqzmMp0llSNp2wL"
+            {
+              "type": "button",
+              "style": "primary",
+              "height": "sm",
+              "color": "#C9A24D",
+              "action": {
+                "type": "uri",
+                "label": "ดูเพิ่มเติม",
+                "uri": "http://linecorp.com/"
+              }
+            }
+          ]
         }
       },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "backgroundColor": "#9370DB",
-        "contents": [
-          {
-            "type": "text",
-            "text": "วิธีการสร้างให้ชีวิตให้ดูดีมีความสุข",
-            "weight": "bold",
-            "size": "md",
-            "color": "#4A148C",
-            "wrap": true
-          },
-          {
-            "type": "text",
-            "text": "แนะนำโดย : นตท.สิทธิกร สุทธพันธ์",
-            "size": "sm",
-            "color": "#6A1B9A",
-            "wrap": true
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://img5.pic.in.th/file/secure-sv1/-17da1e51fa6030e0e.png",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "2.9:3",
+          "action": {
+            "type": "uri",
+            "uri": "https://youtube.com/shorts/tAtWueQrTTI"
           }
-        ],
-        "cornerRadius": "none"
-      }
-    },
-    {
-      "type": "bubble",
-      "hero": {
-        "type": "image",
-        "url": "https://img2.pic.in.th/pic/-23783888772a23b05.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "2.9:3",
-        "animated": true,
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "https://www.youtube.com/shorts/c4Kzxc9VcZ8?si=hSOhMHdVq4k-fqO0"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#0D1B2A",
+          "paddingAll": "14px",
+          "contents": [
+            {
+              "type": "text",
+              "text": "วิธีการสร้างชีวิตให้ดูดีมีความสุข",
+              "weight": "bold",
+              "size": "md",
+              "color": "#F5C16C",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "แนะนำโดย : นตท.สิทธิกร สุทธพันธ์",
+              "size": "sm",
+              "color": "#E0E1DD",
+              "wrap": true
+            }
+          ]
         }
       },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "backgroundColor": "#9370DB",
-        "contents": [
-          {
-            "type": "text",
-            "weight": "bold",
-            "size": "md",
-            "color": "#4A148C",
-            "wrap": true,
-            "text": "หาญท้าชะตาฟ้า ปริศนายุทธจักร"
-          },
-          {
-            "type": "text",
-            "text": "แนะนำโดย :  นตท.กรวัฒน์ จงมีความสุข",
-            "size": "sm",
-            "color": "#6A1B9A",
-            "wrap": true
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://img2.pic.in.th/pic/-23783888772a23b05.png",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "2.9:3",
+          "action": {
+            "type": "uri",
+            "uri": "https://www.youtube.com/shorts/c4Kzxc9VcZ8"
           }
-        ],
-        "cornerRadius": "none"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#0D1B2A",
+          "paddingAll": "14px",
+          "contents": [
+            {
+              "type": "text",
+              "text": "หาญท้าชะตาฟ้า ปริศนายุทธจักร",
+              "weight": "bold",
+              "size": "md",
+              "color": "#F5C16C",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "แนะนำโดย : นตท.กรวัฒน์ จงมีความสุข",
+              "size": "sm",
+              "color": "#E0E1DD",
+              "wrap": true
+            }
+          ]
+        }
       }
+    ]
+  };
+
+  await liff.shareTargetPicker([
+    {
+      type: "flex",
+      altText: "แนะนำหนังสือน่าอ่าน",
+      contents: flexContents
     }
-  ]
+  ]);
+
+  liff.closeWindow();
 }
+</script>
+
+</body>
+</html>
