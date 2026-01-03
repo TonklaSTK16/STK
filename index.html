@@ -30,118 +30,126 @@
 <button onclick="shareFlex()">📤 แชร์ให้เพื่อนใน LINE</button>
 
 <script>
-  const LIFF_ID = "2008684801-JHp06o3v"; // ⚠️ ต้องเป็น LIFF ที่ผูกกับ Messaging API
+const LIFF_ID = "2008684801-JHp06o3v"; // ต้องเป็น LIFF ที่ผูก Messaging API
 
-  liff.init({ liffId: LIFF_ID })
-    .then(() => {
-      if (!liff.isInClient()) {
-        alert("กรุณาเปิดผ่านแอป LINE เท่านั้น");
-      }
-    })
-    .catch(err => {
-      alert("LIFF init error: " + err);
-    });
+liff.init({ liffId: LIFF_ID })
+  .then(() => {
+    if (!liff.isInClient()) {
+      alert("กรุณาเปิดผ่านแอป LINE เท่านั้น");
+    }
+  })
+  .catch(err => {
+    alert("LIFF init error: " + err);
+  });
 
-  function shareFlex() {
-    liff.shareTargetPicker([
-      {
-        type: "flex",
-        altText: "แนะนำหนังสือน่าอ่าน",
-        contents: {
-          type: "carousel",
-          contents: [
+function shareFlex() {
+  liff.shareTargetPicker([
+    {
+      type: "flex",
+      altText: "แนะนำหนังสือน่าอ่าน",
+      contents: {
+        type: "carousel",
+        contents: [
 
-            /* ---------- Bubble ที่ 1 : หน้าปก ---------- */
-            {
-              type: "bubble",
-              hero: {
-                type: "image",
-                url: "https://img5.pic.in.th/file/secure-sv1/c4daebff79339bea678e9aff4243d20a.png",
-                size: "full",
-                aspectMode: "cover",
-                aspectRatio: "2.3:3"
-              }
+          /* ===== Bubble 1 : หน้าปก ===== */
+          {
+            type: "bubble",
+            hero: {
+              type: "image",
+              url: "https://img5.pic.in.th/file/secure-sv1/c4daebff79339bea678e9aff4243d20a.png",
+              size: "full",
+              aspectMode: "cover",
+              aspectRatio: "2.3:3"
             },
-
-            /* ---------- Bubble ที่ 2 : หนังสือเล่มที่ 1 ---------- */
-            {
-              type: "bubble",
-              hero: {
-                type: "image",
-                url: "https://img5.pic.in.th/file/secure-sv1/-17da1e51fa6030e0e.png",
-                size: "full",
-                aspectMode: "cover",
-                aspectRatio: "2.9:3",
-                action: {
-                  type: "uri",
-                  uri: "https://youtube.com/shorts/tAtWueQrTTI"
-                }
-              },
-              body: {
-                type: "box",
-                layout: "vertical",
-                backgroundColor: "#0b1c2d",
-                contents: [
-                  {
-                    type: "text",
-                    text: "วิธีการสร้างชีวิตให้ดูดีมีความสุข",
-                    weight: "bold",
-                    color: "#f5c77a",
-                    wrap: true
-                  },
-                  {
-                    type: "text",
-                    text: "แนะนำโดย : นตท.สิทธิกร สุทธพันธ์",
-                    size: "sm",
-                    color: "#ffffff",
-                    wrap: true
-                  }
-                ]
-              }
-            },
-
-            /* ---------- Bubble ที่ 3 : หนังสือเล่มที่ 2 ---------- */
-            {
-              type: "bubble",
-              hero: {
-                type: "image",
-                url: "https://img2.pic.in.th/pic/-23783888772a23b05.png",
-                size: "full",
-                aspectMode: "cover",
-                aspectRatio: "2.9:3",
-                action: {
-                  type: "uri",
-                  uri: "https://www.youtube.com/shorts/c4Kzxc9VcZ8"
-                }
-              },
-              body: {
-                type: "box",
-                layout: "vertical",
-                backgroundColor: "#0b1c2d",
-                contents: [
-                  {
-                    type: "text",
-                    text: "หาญท้าชะตาฟ้า ปริศนายุทธจักร",
-                    weight: "bold",
-                    color: "#f5c77a",
-                    wrap: true
-                  },
-                  {
-                    type: "text",
-                    text: "แนะนำโดย : นตท.กรวัฒน์ จงมีความสุข",
-                    size: "sm",
-                    color: "#ffffff",
-                    wrap: true
-                  }
-                ]
-              }
+            body: {
+              type: "box",
+              layout: "vertical",
+              paddingAll: "0px",
+              contents: []
             }
+          },
 
-          ]
-        }
+          /* ===== Bubble 2 : หนังสือเล่มที่ 1 ===== */
+          {
+            type: "bubble",
+            action: {
+              type: "uri",
+              uri: "https://youtube.com/shorts/tAtWueQrTTI"
+            },
+            hero: {
+              type: "image",
+              url: "https://img5.pic.in.th/file/secure-sv1/-17da1e51fa6030e0e.png",
+              size: "full",
+              aspectMode: "cover",
+              aspectRatio: "2.9:3"
+            },
+            body: {
+              type: "box",
+              layout: "vertical",
+              paddingTop: "0px",
+              backgroundColor: "#0b1c2d",
+              contents: [
+                {
+                  type: "text",
+                  text: "วิธีการสร้างชีวิตให้ดูดีมีความสุข",
+                  weight: "bold",
+                  color: "#f5c77a",
+                  wrap: true
+                },
+                {
+                  type: "text",
+                  text: "แนะนำโดย : นตท.สิทธิกร สุทธพันธ์",
+                  size: "sm",
+                  color: "#ffffff",
+                  wrap: true
+                }
+              ]
+            }
+          },
+
+          /* ===== Bubble 3 : หนังสือเล่มที่ 2 ===== */
+          {
+            type: "bubble",
+            action: {
+              type: "uri",
+              uri: "https://www.youtube.com/shorts/c4Kzxc9VcZ8"
+            },
+            hero: {
+              type: "image",
+              url: "https://img2.pic.in.th/pic/-23783888772a23b05.png",
+              size: "full",
+              aspectMode: "cover",
+              aspectRatio: "2.9:3"
+            },
+            body: {
+              type: "box",
+              layout: "vertical",
+              paddingTop: "0px",
+              backgroundColor: "#0b1c2d",
+              contents: [
+                {
+                  type: "text",
+                  text: "หาญท้าชะตาฟ้า ปริศนายุทธจักร",
+                  weight: "bold",
+                  color: "#f5c77a",
+                  wrap: true
+                },
+                {
+                  type: "text",
+                  text: "แนะนำโดย : นตท.กรวัฒน์ จงมีความสุข",
+                  size: "sm",
+                  color: "#ffffff",
+                  wrap: true
+                }
+              ]
+            }
+          }
+
+        ]
       }
-    ]);
-  }
+    }
+  ]);
+}
 </script>
 
 </body>
